@@ -14,9 +14,8 @@ public class CuentaCorrienteData {
     private Conexion con;
 
     public CuentaCorrienteData() {
-        con = new Conexion(); // Crear una instancia de la clase Conexion
-    }
-    
+        con = new Conexion(); // 
+    }  
   
 
 
@@ -52,13 +51,13 @@ public List<CuentaCorriente> listarTransferenciasConPaciente(Date desde, Date ha
         ResultSet rs = ps.executeQuery();
         
         while (rs.next()) {
-            // Crear el objeto Paciente con el nombre y apellido obtenidos del ResultSet
+          
             Paciente paciente = new Paciente();
             paciente.setIdPaciente(rs.getInt("id_paciente"));
             paciente.setNombre(rs.getString("nombre"));
             paciente.setApellido(rs.getString("apellido"));
             
-            // Crear el objeto CuentaCorriente con el objeto Paciente
+          
             CuentaCorriente cc = new CuentaCorriente(
                 rs.getInt("id_cc"),
                 rs.getInt("id_paciente"),
@@ -67,7 +66,7 @@ public List<CuentaCorriente> listarTransferenciasConPaciente(Date desde, Date ha
                 rs.getTimestamp("fecha"),
                 rs.getDouble("egreso"),
                 rs.getDouble("ingreso"),
-                paciente  // Pasar el objeto Paciente al constructor
+                paciente  
             );
             
             transferencias.add(cc);
@@ -94,7 +93,7 @@ public List<CuentaCorriente> listarTransferenciasConPaciente(Date desde, Date ha
         ResultSet rs = ps.executeQuery();
         
         while (rs.next()) {
-            // Crear el objeto Paciente con el nombre y apellido obtenidos del ResultSet
+           
             Paciente paciente = new Paciente();
             paciente.setIdPaciente(rs.getInt("id_paciente"));
             paciente.setNombre(rs.getString("nombre"));
