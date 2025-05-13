@@ -37,37 +37,6 @@ public class CuentaCorrienteData {
         }
     }
     
-//   public List<CuentaCorriente> listarTransferencias(Date desde, Date hasta) {
-//    List<CuentaCorriente> transferencias = new ArrayList<>();
-//    String sql = "SELECT * FROM cuenta_corriente WHERE fecha BETWEEN ? AND ?";
-//    
-//    try (Connection connection = con.getConexion();  
-//         PreparedStatement ps = connection.prepareStatement(sql)) {
-//        
-//        ps.setDate(1, new java.sql.Date(desde.getTime()));
-//        ps.setDate(2, new java.sql.Date(hasta.getTime()));
-//        
-//        ResultSet rs = ps.executeQuery();
-//        
-//        while (rs.next()) {
-//            CuentaCorriente cc = new CuentaCorriente();
-//            cc.setId_cc(rs.getInt("id_cc"));
-//            cc.setId_paciente(rs.getInt("id_paciente"));
-//            cc.setId_caja(rs.getInt("id_caja"));
-//            cc.setUsuario(rs.getString("usuario"));
-//            cc.setFecha(rs.getTimestamp("fecha"));
-//            cc.setEgreso(rs.getDouble("egreso"));
-//            cc.setIngreso(rs.getDouble("ingreso"));
-//            
-//            transferencias.add(cc);
-//        }
-//        
-//    } catch (SQLException ex) {
-//        ex.printStackTrace();
-//    }
-//    
-//    return transferencias;
-//}
 
 public List<CuentaCorriente> listarTransferenciasConPaciente(Date desde, Date hasta) {
     List<CuentaCorriente> transferencias = new ArrayList<>();
