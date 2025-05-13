@@ -17,13 +17,13 @@ import java.util.List;
 public class profesionalesData {
       private Conexion con;
     public profesionalesData() {
-        con = new Conexion(); // Crear una instancia de la clase Conexion
+        con = new Conexion(); 
         
     }
     
      public void agregarProfesional(String nombre_apellido, String telefono, String direccion) {
     try {
-        Connection connection = con.getConexion(); // Obtener la conexión de la instancia de Conexion
+        Connection connection = con.getConexion(); 
         String sql = "INSERT INTO profesionales (nombre_apellido,telefono,direccion) VALUES (?,?,?)";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setString(1, nombre_apellido);
