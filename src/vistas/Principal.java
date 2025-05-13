@@ -17,9 +17,9 @@ public class Principal extends javax.swing.JFrame {
    private void customizeFrame() {
         setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE); 
         setResizable(false); // Deshabilitar el botón de maximizar
-//        setUndecorated(true); // Quitar la barra de título predeterminada
+//        setUndecorated(true); 
 
-        // Crear un panel que actuará como el nuevo borde de la ventana
+      
         CustomTitleBar customTitleBar = new CustomTitleBar(this);
         setLayout(new BorderLayout());
         add(customTitleBar, BorderLayout.NORTH);
