@@ -23,22 +23,22 @@ public class Notificacion {
     PopupMenu popup = new PopupMenu();
     private Image image = new ImageIcon(getClass().getResource("/correcto.png")).getImage();
     private final TrayIcon trayIcon = new TrayIcon(image, "Aplicación Java", popup);
-    //obtiene instancia SystemTray
+   
     final SystemTray systemtray = SystemTray.getSystemTray();
     //para el Timer
     private Timer timer;
     public static boolean band;
 
     public Notificacion() {
-        //comprueba si SystemTray es soportado en el sistema
+       
         if (SystemTray.isSupported()) {
 
-            //acciones del raton sobre el icono en la barra de tareas
+            
             MouseListener mouseListener = new MouseListener() {
 
                 @Override
                 public void mouseClicked(MouseEvent evt) {
-                    //Si se presiono el boton izquierdo y la aplicacion esta minimizada
+                    //si se presiono el boton izquierdo y la aplicacion esta minimizada
                     if (evt.getButton() == MouseEvent.BUTTON1)// && miframe.getExtendedState()==JFrame.ICONIFIED )
                     {
                         MensajeTrayIcon("Por favor verifique la información", TrayIcon.MessageType.WARNING);
@@ -74,7 +74,7 @@ public class Notificacion {
                         JOptionPane.INFORMATION_MESSAGE);
                 band = true;
             };
-            //Se crean los Items del menu PopUp y se añaden
+          
             MenuItem SalirItem = new MenuItem("Salir");
             SalirItem.addActionListener(salir);
             popup.add(SalirItem);
@@ -85,7 +85,7 @@ public class Notificacion {
             trayIcon.setImageAutoSize(true);
             trayIcon.addMouseListener(mouseListener);
 
-            //Añade el TrayIcon al SystemTray
+           
             try {
                 systemtray.add(trayIcon);
             } catch (AWTException e) {
@@ -96,12 +96,12 @@ public class Notificacion {
         }
     }
 
-    //Muestra una burbuja con la accion que se realiza
+ 
     public void MensajeTrayIcon(String texto, TrayIcon.MessageType tipo) {
         trayIcon.displayMessage("Notificación Sistema Java:", texto, tipo);
     }
 
-    //clase interna que manejara una accion en segundo plano
+    
     class MyTimerTask extends TimerTask {
 
         @Override
@@ -115,7 +115,7 @@ public class Notificacion {
             }
         }
 
-        //Una accion a realiza cuando la aplicacion a sido minimizada
+      
         public void notificacion(String nomprod) {
             MensajeTrayIcon("Notificación\n" + nomprod + " texto prueba notificación. ", TrayIcon.MessageType.INFO);
         }
