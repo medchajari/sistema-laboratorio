@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Metodos;
 
 import Entidades.Paciente;
@@ -23,13 +20,13 @@ import java.util.List;
 public class TipoProtocoloData {
    private Conexion con;
     public TipoProtocoloData() {
-        con = new Conexion(); // Crear una instancia de la clase Conexion
+        con = new Conexion(); 
         
     } 
     
          public void agregarTipoProtocolo(String estudio, String profesional) {
     try {
-        Connection connection = con.getConexion(); // Obtener la conexión de la instancia de Conexion
+        Connection connection = con.getConexion(); 
         String sql = "INSERT INTO tipo_protocolo (estudio,profesional) VALUES (?,?)";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setString(1, estudio);
@@ -89,7 +86,7 @@ public class TipoProtocoloData {
        public tipoProtocolo buscarTipoProtocoloPorId(int id_tipo) {
     tipoProtocolo tipoProtocolo = null;
     try {
-        Connection connection = con.getConexion(); // Obtener la conexión de la instancia de Conexion
+        Connection connection = con.getConexion();
         String sql = "SELECT * FROM tipo_protocolo WHERE id_tipo = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setInt(1, id_tipo);
@@ -100,7 +97,7 @@ public class TipoProtocoloData {
             String estudio = resultSet.getString("estudio");
             String profesional = resultSet.getString("profesional");
 
-            // Crear un nuevo objeto tipoProtocolo y establecer sus campos
+            
             tipoProtocolo = new tipoProtocolo();
             tipoProtocolo.setId_tipo(id_tipo);
             tipoProtocolo.setEstudio(estudio);
@@ -119,7 +116,7 @@ public class TipoProtocoloData {
     List<Protocolo> protocolos = new ArrayList<>();
 
     try {
-        Connection connection = con.getConexion(); // Obtener la conexión de la instancia de Conexion
+        Connection connection = con.getConexion();
         String sql = "SELECT p.*, tp.estudio, c.obra_social " +
                      "FROM protocolo p " +
                      "JOIN tipo_protocolo tp ON p.tipo = tp.estudio " +
@@ -148,7 +145,7 @@ public class TipoProtocoloData {
             protocolo.setEstado(resultSet.getString("estado"));
             protocolo.setMonto(resultSet.getDouble("monto"));
 
-            // Asignar el estudio desde tipoProtocolo como tipo en Protocolo
+          
             protocolo.setTipo(resultSet.getString("estudio"));
 
             protocolos.add(protocolo);
@@ -168,7 +165,7 @@ public class TipoProtocoloData {
     List<Protocolo> protocolos = new ArrayList<>();
 
     try {
-        Connection connection = con.getConexion(); // Obtener la conexión de la instancia de Conexion
+        Connection connection = con.getConexion(); 
         String sql = "SELECT p.*, tp.estudio, c.obra_social " +
                      "FROM protocolo p " +
                      "JOIN tipo_protocolo tp ON p.tipo = tp.estudio " +
@@ -198,7 +195,7 @@ Paciente pac = new Paciente();
             protocolo.setEstado(resultSet.getString("estado"));
             protocolo.setMonto(resultSet.getDouble("monto"));
 
-            // Asignar el estudio desde tipoProtocolo como tipo en Protocolo
+            
             protocolo.setTipo(resultSet.getString("estudio"));
 
             protocolos.add(protocolo);
