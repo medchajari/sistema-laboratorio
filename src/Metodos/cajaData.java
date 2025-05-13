@@ -17,7 +17,7 @@ public class cajaData {
     private Conexion con;
 
     public cajaData() {
-        con = new Conexion(); // Crear una instancia de la clase Conexion        
+        con = new Conexion();   
     }      
 
     public void agregarEntradaCaja1(String usuario, double monto, String formaDePago, String numeroProtocolo, Timestamp fecha, double efectivo, double transferencia, double cuentaCorriente, double obraSocial) throws SQLException {
@@ -66,7 +66,7 @@ public class cajaData {
     public List<Caja> buscarPorFormaDePago(String formaDePago) {
         List<Caja> listaCajas = new ArrayList<>();
         try {
-            Connection connection = con.getConexion();  // Obtener la conexión de la instancia de Conexion
+            Connection connection = con.getConexion();  
             String sql = "SELECT * FROM caja WHERE forma_de_pago = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, formaDePago);  // Establecer el parámetro de la consulta
@@ -93,7 +93,7 @@ public class cajaData {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return listaCajas;  // Retornar la lista de resultados
+        return listaCajas; 
     }
     
     public List<Caja> buscarPorFormaDePagoYFechas(String formaDePago, Date fechaDesde, Date fechaHasta) {
