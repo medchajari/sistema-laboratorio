@@ -15,7 +15,7 @@ public class Principal extends javax.swing.JFrame {
     }
 
    private void customizeFrame() {
-        setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE); // Deshabilitar el botón de cerrar
+        setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE); 
         setResizable(false); // Deshabilitar el botón de maximizar
 //        setUndecorated(true); // Quitar la barra de título predeterminada
 
@@ -24,7 +24,7 @@ public class Principal extends javax.swing.JFrame {
         setLayout(new BorderLayout());
         add(customTitleBar, BorderLayout.NORTH);
 
-        setLocationRelativeTo(null); // Centrar la ventana en la pantalla
+        setLocationRelativeTo(null); 
     }
 
     @SuppressWarnings("unchecked")
