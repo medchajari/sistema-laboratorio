@@ -139,7 +139,7 @@ public class AgregarMedico extends javax.swing.JFrame {
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
      
             try {
-            // Recopilar los datos del proveedor desde los campos de entrada en tu ventana
+         
             
             String nombreyapellido = txtNombre.getText();
             String telefono = txtTelefono.getText();
@@ -150,11 +150,10 @@ public class AgregarMedico extends javax.swing.JFrame {
 
             // Validar que los campos obligatorios no estén vacíos
             if (nombreyapellido.isEmpty() || telefono.isEmpty() || direccion.isEmpty()  ) {
-                // Mostrar un mensaje de error o realizar la lógica necesaria en caso de campos vacíos
-                // Por ejemplo, mostrar una ventana de diálogo de error
+               
                 JOptionPane.showMessageDialog(this, "Todos los campos son obligatorios", "Error", JOptionPane.ERROR_MESSAGE);
             } else {
-                // Llamar al método para agregar el proveedor en la base de datos
+              
                 proData.agregarProfesional(nombreyapellido,telefono, direccion);
                
                 // Limpia los campos de entrada después de agregar el proveedor (opcional)
@@ -166,7 +165,7 @@ public class AgregarMedico extends javax.swing.JFrame {
                    
             }
         } catch (NumberFormatException e) {
-            // Manejar el caso en el que la conversión falla, por ejemplo, mostrar un mensaje de error
+           
             JOptionPane.showMessageDialog(this, "Los campos numéricos contienen valores no válidos", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
@@ -277,7 +276,7 @@ private void llenarComboBoxProf() {
 
     cbxProfesional.setModel(model);
 
-    // Configurar el renderizado del JComboBox para mostrar apellido, nombre
+    
     cbxProfesional.setRenderer(new javax.swing.DefaultListCellRenderer() {
         @Override
         public java.awt.Component getListCellRendererComponent(
@@ -286,7 +285,7 @@ private void llenarComboBoxProf() {
                 Profesionales profesionales = (Profesionales) value;
                 value = profesionales.getNombre_apellido();
             } else if (value == null) {
-                value = ""; // Mostrar una cadena vacía para el elemento vacío
+                value = ""; 
             }
             return super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
         }
