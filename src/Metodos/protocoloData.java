@@ -19,7 +19,7 @@ public class protocoloData {
 
     public void agregarProtocolo(Protocolo protocolo) {
         try {
-            Connection connection = con.getConexion(); // Obtener la conexión de la instancia de Conexion
+            Connection connection = con.getConexion(); 
             String sql = "INSERT INTO protocolo (id_paciente, numero_protocolo, medico, tipo, fecha_entrada, fecha_salida, estado, monto) VALUES (?, ?, ?, ?, ?,?, ?, ?)";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, protocolo.getIdPaciente());
@@ -42,7 +42,7 @@ public class protocoloData {
         List<Protocolo> listaProtocolos = new ArrayList<>();
          List<Paciente> listaPacientes = new ArrayList<>();
         try {
-            Connection connection = con.getConexion(); // Obtener la conexión de la instancia de Conexion
+            Connection connection = con.getConexion(); 
             String sql = "SELECT p.* FROM protocolo p JOIN pacientes pa ON p.id_paciente = pa.id_paciente WHERE 1=1";
             List<Object> parametros = new ArrayList<>();
 
@@ -56,7 +56,7 @@ public class protocoloData {
                 parametros.add("%" + dniPaciente + "%");
             }
             
-            // Agregar la cláusula ORDER BY para ordenar por fecha_salida
+          
         sql += " ORDER BY p.fecha_salida";
 
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
